@@ -257,6 +257,10 @@ class Money:
             self._actual_date = actual_date.strftime("%d.%m.%Y %H:%M:%S")
             print(self._actual_date)
 
+    def show_actual_ecxenge_rate(self):
+        self._update_inner_info()
+        for key, item in self._availeble_currency.items():
+            print(f'{item["Name"]:<50} Код валюты {item["CharCode"]:<20} текущий курс  {item["Value"]} Руб')
 
 
 
@@ -268,9 +272,10 @@ if __name__ == '__main__':
     eur = Money(100, "EUR")
 
     rur.show_last_update_date()
-
+    rur.show_actual_ecxenge_rate()
 
    # print(rur2 > usd.convert_to_valute("RUR"))
     print(rur2 == rur)
     print(usd > eur.convert_to_valute("USD"))
+
 
